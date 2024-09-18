@@ -2,7 +2,7 @@ name: Check Price Change
 
 on:
   schedule:
-   -cron: '0 1 * * *'  # Ejecuta diariamente a medianoche UTC
+    - cron: '0 1 * * *'  # Ejecuta diariamente a medianoche UTC
 
 jobs:
   check_price:
