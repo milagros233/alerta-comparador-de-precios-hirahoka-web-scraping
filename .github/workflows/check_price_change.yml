@@ -1,0 +1,29 @@
+name: Check Price Change
+
+on:
+  schedule:
+   -cron: '0 1 * * *'  # Ejecuta diariamente a medianoche UTC
+
+jobs:
+  check_price:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Run check_change script
+        run: |
+          python main.py
+        env:
+          EMAIL_USER: ${{ secrets.EMAIL_USER }}
+          EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
