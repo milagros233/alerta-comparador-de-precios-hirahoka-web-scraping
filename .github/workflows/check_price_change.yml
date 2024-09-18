@@ -2,8 +2,7 @@ name: Check Price Change
 
 on:
   schedule:
-    - cron: '0 1 * * *'  # Ejecuta diariamente a medianoche UTC
-
+    - cron: '0 1 * * *'  # Se ejecuta a la 1:00 AM UTC diariamente
 jobs:
   check_price:
     runs-on: ubuntu-latest
