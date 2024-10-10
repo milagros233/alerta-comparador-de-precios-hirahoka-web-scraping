@@ -13,6 +13,10 @@ def send_email(subject, body, recipient='cuya210@gmail.com'):
     import smtplib
     from email.mime.text import MIMEText
 
+    #Se obtiene el email y contraseña
+    user= os.getenv('EMAIL_USER')
+    pwd= os.getenv('PASSWORD_USER')
+
     #contenido del correo
     msg = MIMEText(body)
     
@@ -25,9 +29,7 @@ def send_email(subject, body, recipient='cuya210@gmail.com'):
     #correo destino
     msg['To'] = recipient
 
-    #Se obtiene el email y contraseña
-    user= os.getenv('EMAIL_USER')
-    pwd= os.getenv('PASSWORD_USER')
+   
 
     try:
         #se utiliza with para que se cierre atmaticamente la conexión con el servidor SMTP
